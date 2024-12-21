@@ -2,15 +2,20 @@ import random
 from http import HTTPStatus
 
 from quart import Quart, Response, request
+from quart.cli import load_dotenv
+from quart_redis import RedisHandler
 
-from counter import (
+from .counter import (
     get_minute_count,
     get_second_count,
     increment_minute_counter,
     increment_second_counter,
 )
 
+load_dotenv()
 app = Quart(__name__)
+app.config.from_prefixed_env()
+redis_handler = RedisHandler(app)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -46,7 +51,7 @@ async def status_code(code):
 
 @app.route('/code/<int:code>/percent/<int:percent>/', methods=['POST'])
 async def status_code_sometimes(code, percent):
-    if random.randint(0, 100) <= percent:
+    if random.randrange(100) < percent:
         phrase = _get_http_status_phrase(code)
         return Response(phrase, status=code, mimetype='text/plain')
     return Response('OK', mimetype='text/plain')

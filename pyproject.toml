@@ -6,7 +6,15 @@ build-backend = "setuptools.build_meta"
 name = "rep_test_srv"
 description = "A CommCare HQ Repeater Test Service"
 version = "0.1.0"
+readme = "README.rst"
+requires-python = ">= 3.12"
 dependencies = [
     "quart[dotenv]",
+    "quart-redis",
     "redis"
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest-asyncio",
 ]

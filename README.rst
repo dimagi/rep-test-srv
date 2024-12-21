@@ -28,4 +28,47 @@ It supports the following features:
   code 418 on 50% of requests, and 200 the rest of the time.
 
 
+Installing a development environment
+------------------------------------
+
+1. Clone this repository.
+
+2. Create a virtual environment and activate it:
+
+    .. code-block:: bash
+
+        $ python3.12 -m venv venv
+        $ source venv/bin/activate
+
+3. Install the dependencies, including testing dependencies:
+
+    .. code-block:: bash
+
+        $ pip install -e '.[test]'
+
+
+Running
+-------
+
+To run the service, use the following command:
+
+.. code-block:: bash
+
+    $ cd src/
+    $ export QUART_APP=rep_test_srv:app
+    $ quart run
+
+
+Testing
+-------
+
+To run the tests, use the following command:
+
+.. code-block:: bash
+
+    $ cd src/
+    $ export QUART_APP=rep_test_srv:app
+    $ pytest
+
+
 .. _Quart: https://quart.palletsprojects.com/
