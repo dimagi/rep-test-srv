@@ -1,11 +1,14 @@
+import os
 import time
 
+from dotenv import load_dotenv
 from redis.asyncio.client import Redis as AsyncRedis
 
+load_dotenv()
 redis = AsyncRedis(
-    host='localhost',
-    port=6379,
-    db=0,
+    host=os.getenv('REDIS_HOST', 'localhost'),
+    port=int(os.getenv('REDIS_PORT', 6379)),
+    db=int(os.getenv('REDIS_DB', 0)),
 )
 
 

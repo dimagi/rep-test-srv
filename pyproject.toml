@@ -7,6 +7,6 @@ name = "rep_test_srv"
 description = "A CommCare HQ Repeater Test Service"
 version = "0.1.0"
 dependencies = [
-    "quart",
+    "quart[dotenv]",
     "redis"
 ]
