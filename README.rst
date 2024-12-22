@@ -5,8 +5,6 @@
 This is a small service for testing Repeaters / CommCare HQ Data
 Forwarding.
 
-It is written in Python + `Quart`_.
-
 It supports the following features:
 
 * GET or POST to a root endpoint, e.g. ``https://api.example.com/``:
@@ -27,6 +25,15 @@ It supports the following features:
   ``https://api.example.com/code/418/percent/50/`` will return status
   code 418 on 50% of requests, and 200 the rest of the time.
 
+The Repeater Test Service is built using, `Quart`_, the async web
+framework based on Flask.
+
+
+Requirements
+------------
+
+The Repeater Test Service requires Python >= 3.12, and Redis.
+
 
 Installing a development environment
 ------------------------------------
@@ -45,6 +52,14 @@ Installing a development environment
     .. code-block:: bash
 
         $ pip install -e '.[test]'
+
+4. Set the ``QUART_REDIS_URI`` environment variable. e.g.
+
+    .. code-block:: bash
+
+        $ export QUART_REDIS_URI='redis://localhost:6379/0'
+
+   The use of ``.env`` is supported.
 
 
 Running
