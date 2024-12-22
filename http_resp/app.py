@@ -5,7 +5,7 @@ from quart import Quart, Response, request
 from quart.cli import load_dotenv
 from quart_redis import RedisHandler
 
-from .counter import (
+from http_resp.counter import (
     get_minute_count,
     get_second_count,
     increment_minute_counter,

@@ -1,7 +1,7 @@
 import pytest
 import pytest_asyncio
 
-from ..rep_test_srv import app
+from http_resp import app
 
 
 @pytest_asyncio.fixture(name='test_app', scope='function')

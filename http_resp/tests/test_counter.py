@@ -1,13 +1,13 @@
 import pytest
 import pytest_asyncio
 
-from ..counter import (
+from http_resp import app
+from http_resp.counter import (
     get_minute_count,
     get_second_count,
     increment_minute_counter,
     increment_second_counter,
 )
-from ..rep_test_srv import app
 
 
 @pytest_asyncio.fixture(name='test_app', scope='function')
