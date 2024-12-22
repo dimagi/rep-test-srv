@@ -1,0 +1,10 @@
+[Unit]
+Description=Repeater Test Service
+After=network.target
+
+[Service]
+ExecStart=/opt/rep-test-srv/run.sh
+Type=simple
+
+[Install]
+WantedBy=default.target

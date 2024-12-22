@@ -92,5 +92,24 @@ To run the tests, use the following command:
    $ pytest
 
 
+VPS Deployment
+--------------
+
+To deploy on a virtual private server, clone this repository into
+``/opt/rep-test-srv/``.
+
+Check the assumption made in ``run.sh`` regarding the external network
+device name.
+
+Copy ``rep-test-srv.service`` to ``/etc/systemd/system/``.
+
+Reload systemd, and enable the service:
+
+.. code-block:: bash
+
+   $ sudo systemctl daemon-reload
+   $ sudo systemctl enable rep-test-srv.service
+
+
 .. _httpbin: https://httpbin.org/
 .. _Quart: https://quart.palletsprojects.com/
