@@ -5,6 +5,7 @@ After=network.target
 [Service]
 ExecStart=/opt/rep-test-srv/run.sh
 Type=simple
+Restart=always
 
 [Install]
 WantedBy=default.target

@@ -101,7 +101,13 @@ To deploy on a virtual private server, clone this repository into
 Check the assumption made in ``run.sh`` regarding the external network
 device name.
 
-Copy ``rep-test-srv.service`` to ``/etc/systemd/system/``.
+Create a symlink to ``rep-test-srv.service`` in
+``/etc/systemd/system/``:
+
+.. code-block:: bash
+
+   $ cd /etc/systemd/system/
+   $ sudo ln -s /opt/rep-test-srv/rep-test-srv.service
 
 Reload systemd, and enable the service:
 
