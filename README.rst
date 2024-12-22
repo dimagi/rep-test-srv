@@ -2,8 +2,8 @@
  Repeater Test Service
 =======================
 
-This is a small service for testing Repeaters / CommCare HQ Data
-Forwarding.
+This is a small HTTP response service, created for testing CommCare HQ
+Data Forwarding, a.k.a. Repeaters.
 
 It supports the following features:
 
@@ -11,28 +11,32 @@ It supports the following features:
   Returns a 200 response.
 
 * Rate-limit requests per second: For example,
-  ``https://api.example.com/rps/5/`` returns a 200 response, or a 429
-  response if more than 5 requests are received per second from the
+  ``POST https://api.example.com/rps/5/`` returns a 200 response, or a
+  429 response if more than 5 requests are received per second from the
   same IP address.
 
 * Rate-limit requests per minute: Like rate-limit requests per second.
-  e.g. ``https://api.example.com/rpm/300/``.
+  e.g. ``POST https://api.example.com/rpm/300/``.
 
-* Return a given status code: e.g. ``https://api.example.com/code/418/``
-  will return status code 418.
+* Return a given status code: e.g.
+  ``POST https://api.example.com/status/418/`` will return status code
+  418.
 
 * Return a given status code with a given possibility: e.g.
-  ``https://api.example.com/code/418/percent/50/`` will return status
-  code 418 on 50% of requests, and 200 the rest of the time.
+  ``POST https://api.example.com/status/418/percent/50/`` will return
+  status code 418 on 50% of requests, and 200 the rest of the time.
 
-The Repeater Test Service is built using, `Quart`_, the async web
-framework based on Flask.
+For everything else, you probably want `httpbin`_.
+
+The Repeater Test Service is built using, `Quart`_, the asyncio web
+microframework based on Flask.
 
 
 Requirements
 ------------
 
-The Repeater Test Service requires Python >= 3.12, and Redis.
+The Repeater Test Service requires Redis, and is tested using Python
+3.12, although it probably works with other versions.
 
 
 Installing a development environment
@@ -86,4 +90,5 @@ To run the tests, use the following command:
    $ pytest
 
 
+.. _httpbin: https://httpbin.org/
 .. _Quart: https://quart.palletsprojects.com/
