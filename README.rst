@@ -28,7 +28,7 @@ It supports the following features:
 
 For everything else, you probably want `httpbin`_.
 
-The Repeater Test Service is built using, `Quart`_, the asyncio web
+The Repeater Test Service is built using `Quart`_, the asyncio web
 microframework based on Flask.
 
 
@@ -63,7 +63,11 @@ Installing a development environment
 
       $ export QUART_REDIS_URI='redis://localhost:6379/0'
 
-   The use of ``.env`` is supported.
+   The use of ``.env`` is supported. e.g.
+
+   .. code-block:: bash
+
+      $ echo "QUART_REDIS_URI = 'redis://localhost:6379/0'" > .env
 
 
 Running
@@ -73,8 +77,7 @@ To run the service, use the following command:
 
 .. code-block:: bash
 
-   $ cd src/
-   $ export QUART_APP=rep_test_srv:app
+   $ export QUART_APP=http_resp:app
    $ quart run
 
 
@@ -85,8 +88,7 @@ To run the tests, use the following command:
 
 .. code-block:: bash
 
-   $ cd src/
-   $ export QUART_APP=rep_test_srv:app
+   $ export QUART_APP=http_resp:app
    $ pytest
 
 
