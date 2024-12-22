@@ -43,13 +43,13 @@ async def requests_per_minute(rpm):
     return Response('OK', mimetype='text/plain')
 
 
-@app.route('/code/<int:code>/', methods=['POST'])
+@app.route('/status/<int:code>/', methods=['POST'])
 async def status_code(code):
     phrase = _get_http_status_phrase(code)
     return Response(phrase, status=code, mimetype='text/plain')
 
 
-@app.route('/code/<int:code>/percent/<int:percent>/', methods=['POST'])
+@app.route('/status/<int:code>/percent/<int:percent>/', methods=['POST'])
 async def status_code_sometimes(code, percent):
     if random.randrange(100) < percent:
         phrase = _get_http_status_phrase(code)

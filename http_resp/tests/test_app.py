@@ -49,7 +49,7 @@ async def test_requests_per_minute(test_app):
 @pytest.mark.asyncio
 async def test_status_code(test_app):
     async with test_app.test_client() as client:
-        response = await client.post('/code/404/')
+        response = await client.post('/status/404/')
         assert response.status_code == 404
         data = await response.get_data(as_text=True)
         assert data == 'Not Found'
@@ -58,7 +58,7 @@ async def test_status_code(test_app):
 @pytest.mark.asyncio
 async def test_status_code_sometimes_100(test_app):
     async with test_app.test_client() as client:
-        response = await client.post('/code/404/percent/100/')
+        response = await client.post('/status/404/percent/100/')
         assert response.status_code == 404
         data = await response.get_data(as_text=True)
         assert data == 'Not Found'
@@ -67,7 +67,7 @@ async def test_status_code_sometimes_100(test_app):
 @pytest.mark.asyncio
 async def test_status_code_sometimes_0(test_app):
     async with test_app.test_client() as client:
-        response = await client.post('/code/404/percent/0/')
+        response = await client.post('/status/404/percent/0/')
         assert response.status_code == 200
         data = await response.get_data(as_text=True)
         assert data == 'OK'
