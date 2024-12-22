@@ -42,22 +42,22 @@ Installing a development environment
 
 2. Create a virtual environment and activate it:
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-        $ python3.12 -m venv venv
-        $ source venv/bin/activate
+      $ python3.12 -m venv venv
+      $ source venv/bin/activate
 
 3. Install the dependencies, including testing dependencies:
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-        $ pip install -e '.[test]'
+      $ pip install -e '.[test]'
 
 4. Set the ``QUART_REDIS_URI`` environment variable. e.g.
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-        $ export QUART_REDIS_URI='redis://localhost:6379/0'
+      $ export QUART_REDIS_URI='redis://localhost:6379/0'
 
    The use of ``.env`` is supported.
 
@@ -69,9 +69,9 @@ To run the service, use the following command:
 
 .. code-block:: bash
 
-    $ cd src/
-    $ export QUART_APP=rep_test_srv:app
-    $ quart run
+   $ cd src/
+   $ export QUART_APP=rep_test_srv:app
+   $ quart run
 
 
 Testing
@@ -81,9 +81,9 @@ To run the tests, use the following command:
 
 .. code-block:: bash
 
-    $ cd src/
-    $ export QUART_APP=rep_test_srv:app
-    $ pytest
+   $ cd src/
+   $ export QUART_APP=rep_test_srv:app
+   $ pytest
 
 
 .. _Quart: https://quart.palletsprojects.com/
