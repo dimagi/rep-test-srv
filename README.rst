@@ -26,6 +26,10 @@ It supports the following features:
   ``POST https://api.example.com/status/418/percent/50/`` will return
   status code 418 on 50% of requests, and 200 the rest of the time.
 
+* Wait a given number of seconds before sending a reply: e.g.
+  ``POST https://api.example.com/wait/5/`` will wait 5 seconds before
+  responding.
+
 For everything else, you probably want `httpbin`_.
 
 The Repeater Test Service is built using `Quart`_, the asyncio web

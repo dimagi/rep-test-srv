@@ -1,3 +1,5 @@
+from time import time
+
 import pytest
 import pytest_asyncio
 
@@ -71,3 +73,12 @@ async def test_status_code_sometimes_0(test_app):
         assert response.status_code == 200
         data = await response.get_data(as_text=True)
         assert data == 'OK'
+
+
+@pytest.mark.asyncio
+async def test_wait_seconds(test_app):
+    async with test_app.test_client() as client:
+        before = time()
+        await client.post('/wait/1/')
+        after = time()
+        assert after - before >= 1

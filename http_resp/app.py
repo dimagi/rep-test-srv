@@ -1,4 +1,5 @@
 import random
+from asyncio import sleep
 from http import HTTPStatus
 
 from quart import Quart, Response, request
@@ -63,6 +64,12 @@ def _get_http_status_phrase(status_code):
         return http_status_by_value[status_code].phrase
     except KeyError:
         return '[Unknown]'
+
+
+@app.route('/wait/<int:secs>/', methods=['POST'])
+async def wait_seconds(secs):
+    await sleep(secs)
+    return Response('OK', mimetype='text/plain')
 
 
 def run():
